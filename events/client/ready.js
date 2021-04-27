@@ -13,16 +13,16 @@ module.exports = client => {
     }catch{ /* */ }
 
     try{
-        client.user.setActivity(client.user.username, { type: "PLAYING" });
+        client.user.setActivity("?help | https://github.com/Darkempire78/Darkempire-Dev-Bot", { type: "PLAYING" });
     }catch (e) {
         console.log(String(e.stack).red);
     }
     //Change status each 10 minutes
-    setInterval(()=>{
-        try{
-        client.user.setActivity(client.user.username, { type: "PLAYING" });
-        }catch (e) {
-            console.log(String(e.stack).red);
-        }
-    }, 10*60*1000)
+    // setInterval(()=>{
+    //     try{
+    //     client.user.setActivity(`?help ${client.user.username}`, { type: "PLAYING" });
+    //     }catch (e) {
+    //         console.log(String(e.stack).red);
+    //     }
+    // }, 10*60*1000)
 }
