@@ -9,7 +9,12 @@ module.exports = {
     usage: "say <TEXT>",
     description: "Resends your Text",
     run: async (client, message, args, user, text, prefix) => {
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return
+
         try{
+            message.delete();
+
             if(!args[0])
                 return message.channel.send(new MessageEmbed()
                     .setColor(ee.wrongcolor)
@@ -18,6 +23,7 @@ module.exports = {
                     .setDescription(`Usage: \`${prefix}${this.usage}\``)
                 );
             message.channel.send(text);
+
         } catch (e) {
             console.log(String(e.stack).bgRed)
             return message.channel.send(new MessageEmbed()

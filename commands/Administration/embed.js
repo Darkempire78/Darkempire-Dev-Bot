@@ -9,6 +9,9 @@ module.exports = {
     usage: "embed <TITLE> ++ <DESCRIPTION>",
     description: "Resends a message from you as an Embed",
     run: async (client, message, args, user, text, prefix) => {
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) return
+
         try{
             if(!args[0])
                 return message.channel.send(new MessageEmbed()
