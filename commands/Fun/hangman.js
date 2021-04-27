@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
-const ee = require("../../botconfig/embed.json");const hangman = require('discord-hangman');
+const ee = require("../../botconfig/embed.json");
+const hangman = require('discord-hangman');
 
 module.exports = {
     name: "hangman",

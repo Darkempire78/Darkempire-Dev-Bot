@@ -6,6 +6,12 @@ const config = require("../../botconfig/config.json"); //loading config file wit
 const ee = require("../../botconfig/embed.json"); //Loading all embed settings like color footertext and icon ...
 const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
 const { escapeRegex} = require("../../handlers/functions"); //Loading all needed functions
+
+// chatbot
+const smartestchatbot = require('smartestchatbot')
+const chatBot = new smartestchatbot.Client()
+
+
 //here the event starts
 module.exports = async (client, message) => {
     try {
@@ -17,6 +23,25 @@ module.exports = async (client, message) => {
         if (message.channel.partial) await message.channel.fetch();
         //if the message is on partial fetch it
         if (message.partial) await message.fetch();
+        // If it's the chatbot channel
+        if (message.channel.id == config.chatBotChannel) {
+            try{
+                // https://www.npmjs.com/package/smartestchatbot/v/1.0.4
+
+                chatBot.chat({message: message.content, name: client.user.username, owner:"Darkempire", user: parseInt(message.author.id), language:"en"}).then(reply => {
+                    reply = reply.replace("@everyone", "").replace("@here", "")
+                    message.channel.send(`<@${message.author.id}> ${reply}`);
+                })
+            } catch (e) {
+                console.log(String(e.stack).bgRed)
+                return message.channel.send(new MessageEmbed()
+                    .setColor(ee.wrongcolor)
+                    .setFooter(ee.footertext, ee.footericon)
+                    .setTitle(`❌ ERROR | An error occurred`)
+                    .setDescription(`\`\`\`${e.stack}\`\`\``)
+                );
+            }
+        }
         //get the current prefix from the botconfig/config.json
         let prefix = config.prefix
         //the prefix can be a Mention of the Bot / The defined Prefix of the Bot

@@ -1,5 +1,6 @@
 {
     "token": "",
     "prefix": "!",
-    "defaultCommandCooldown" : 1
+    "defaultCommandCooldown" : 1,
+        "chatBotChannel": 0
 }

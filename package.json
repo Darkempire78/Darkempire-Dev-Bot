@@ -12,7 +12,8 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "discord-hangman": "git+https://github.com/SimonLeclere/discord-hangman.git#node-v12",
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "smartestchatbot": "^1.0.4"
   },
   "devDependencies": {
     "ascii-table": "0.0.9",
