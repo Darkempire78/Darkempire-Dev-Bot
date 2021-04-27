@@ -55,7 +55,7 @@ module.exports = {
                         result[line].push(value);
                     }
                 }
-                embed.addField(`**${current.toUpperCase()} [${items.length}]**`, `> ${result[0].join("\n> ")}`, true);
+                embed.addField(`**${current.toUpperCase()} (${items.length})**`, `> ${result[0].join("\n> ")}`, true);
                 embed.addField(`\u200b`, `${result[1].join("\n") ? result[1].join("\n") : "\u200b"}`, true);
                 embed.addField(`\u200b`, `${result[2].join("\n") ? result[2].join("\n") : "\u200b"}`, true);
                 }
