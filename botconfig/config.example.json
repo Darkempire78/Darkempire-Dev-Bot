@@ -1,6 +1,33 @@
 {
     "token": "",
     "prefix": "!",
-    "defaultCommandCooldown" : 1,
-        "chatBotChannel": 0
+    "defaultCommandCooldown": 1,
+    "chatBotChannel": 0,
+    "logs": {
+        "public": {
+            "channel": 0,
+            "public-logs-note": "Some servers may want to share some logs with their users, so we splitted both logs and made it easily configurable",
+            "commands": {
+                "everything": false,
+                "unkown": false,
+                "clear": false,
+                "ban": true,
+                "kick": true,
+                "mute": true
+            },
+            "unkown":true
+        },
+        "admin": {
+            "channel": 0,
+            "commands": {
+                "everything": false,
+                "unkown": true,
+                "clear": true,
+                "ban": true,
+                "kick": true,
+                "mute": true
+            },
+            "unkown":true
+        }
+    }
 }
