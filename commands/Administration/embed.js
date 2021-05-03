@@ -5,20 +5,19 @@ module.exports = {
     name: "embed",
     category: "Administration",
     aliases: ["say-embed"],
+    memberpermissions: "ADMINISTRATOR",
+    adminPermOverride: true,
     cooldown: 2,
     usage: "embed <TITLE> ++ <DESCRIPTION>",
     description: "Resends a message from you as an Embed",
     run: async (client, message, args, user, text, prefix) => {
-
-        if (!message.member.hasPermission("ADMINISTRATOR")) return
-
         try{
             if(!args[0])
                 return message.channel.send(new MessageEmbed()
                     .setColor(ee.wrongcolor)
                     .setFooter(ee.footertext, ee.footericon)
                     .setTitle(`❌ ERROR | You didn't provided a Title, nor a Description`)
-                    .setDescription(`Usage: \`${prefix}${this.usage}\``)
+                    .setDescription(`Usage: \`${config.prefix}${this.usage}\``)
                 );
             let userargs = args.join(" ").split("++");
             let title = userargs[0];

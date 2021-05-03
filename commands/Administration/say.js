@@ -5,13 +5,12 @@ module.exports = {
     name: "say",
     category: "Administration",
     aliases: [""],
+    memberpermissions: "ADMINISTRATOR",
+    adminPermOverride: true,
     cooldown: 2,
     usage: "say <TEXT>",
     description: "Resends your Text",
     run: async (client, message, args, user, text, prefix) => {
-
-        if (!message.member.hasPermission("ADMINISTRATOR")) return
-
         try{
             message.delete();
 
@@ -20,7 +19,7 @@ module.exports = {
                     .setColor(ee.wrongcolor)
                     .setFooter(ee.footertext, ee.footericon)
                     .setTitle(`❌ ERROR | You didn't provided a Text`)
-                    .setDescription(`Usage: \`${prefix}${this.usage}\``)
+                    .setDescription(`Usage: \`${config.prefix}${this.usage}\``)
                 );
             message.channel.send(text);
 
