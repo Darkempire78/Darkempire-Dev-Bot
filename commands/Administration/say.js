@@ -5,13 +5,12 @@ module.exports = {
     name: "say",
     category: "Administration",
     aliases: [""],
+    memberpermissions: "ADMINISTRATOR",
+    adminPermOverride: true,
     cooldown: 2,
     usage: "say <TEXT>",
     description: "Resends your Text",
     run: async (client, message, args, user, text, prefix) => {
-
-        if (!message.member.hasPermission("ADMINISTRATOR")) return
-
         try{
             message.delete();
 
