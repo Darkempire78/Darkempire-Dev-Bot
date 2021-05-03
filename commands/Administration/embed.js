@@ -17,7 +17,7 @@ module.exports = {
                     .setColor(ee.wrongcolor)
                     .setFooter(ee.footertext, ee.footericon)
                     .setTitle(`❌ ERROR | You didn't provided a Title, nor a Description`)
-                    .setDescription(`Usage: \`${prefix}${this.usage}\``)
+                    .setDescription(`Usage: \`${config.prefix}${this.usage}\``)
                 );
             let userargs = args.join(" ").split("++");
             let title = userargs[0];
