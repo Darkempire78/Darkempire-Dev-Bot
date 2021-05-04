@@ -1,7 +1,5 @@
 # Darkempire Dev Bot
 
-The Discord bot of my dev server https://discord.gg/sPvJmY7mcV.
-
 ![](https://img.shields.io/codefactor/grade/github/Darkempire78/Darkempire-Dev-Bot?style=for-the-badge) 
 ![](https://img.shields.io/github/repo-size/Darkempire78/Darkempire-Dev-Bot?style=for-the-badge) 
 <a href="https://discord.com/invite/sPvJmY7mcV"><img src="https://img.shields.io/discord/831524351311609907?color=%237289DA&label=DISCORD&style=for-the-badge"></a>
