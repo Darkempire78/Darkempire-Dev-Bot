@@ -1,10 +1,13 @@
+const { MessageEmbed } = require("discord.js");
 const ee = require("../../botconfig/embed.json");
+const config = require("../../botconfig/config.json");
 let client;
+
 module.exports = {
     name: "clear",
     aliases: ["purge"],
     description: "Deletes the provided amount of messages",
-    category: "Administration",
+    category: "Moderation",
     guildOnly: true,
     memberpermissions: "MANAGE_MESSAGES",
     adminPermOverride: true,
@@ -14,7 +17,7 @@ module.exports = {
     run(clientt, message, args) {
         client = clientt //if someone know how to do this please do so
         let msg = args[0]
-        if (isNaN(msg)) sendHelp(message, this)
+        if (isNaN(msg)) sendHelp(this, message)
         else clear(message, msg)
     },
 };
@@ -52,7 +55,7 @@ async function sendHelp(command, message) {
     return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`❌ ERROR | You didn't provided a Title, nor a Description`)
-        .setDescription(`Usage: \`${prefix}${command.usage}\``)
+        .setTitle(`❌ ERROR | You didn't provided an argument`)
+        .setDescription(`Usage: \`${config.prefix}${command.usage}\``)
     );
 }
