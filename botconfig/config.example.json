@@ -3,6 +3,7 @@
     "prefix": "!",
     "defaultCommandCooldown": 1,
     "chatBotChannel": 0,
+    "githubWebhook": "",
     "logs": {
         "public": {
             "channel": 0,

@@ -1,10 +1,12 @@
 const axios = require('axios');
 const fs = require('fs');
+
+const config = require("../../botconfig/config.json");
+
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
-const hook = new Webhook("https://discord.com/api/webhooks/831531284030291989/XUvdCCsNdPIOj2kPJZc10fE7pqt5kBzQen-WRXcxo92TzU-oKVMkqjZ827XjIe6QNd1J");
+const hook = new Webhook(config.githubWebhook);
 
 //here the event starts
-const config = require("../../botconfig/config.json")
 module.exports = client => {
     try{
         const stringlength = 69;
@@ -44,7 +46,6 @@ module.exports = client => {
                 if (newFollower != lastFollower["lastGithubFollower"]) {
                     // Update channel + send notif
                     client.channels.fetch("853329566512054283").then(channel => {
-                        console.log(channel)
                         channel.setName(`🚀│${followersNumber} GitHub Followers`)
                     })
 
@@ -75,5 +76,3 @@ module.exports = client => {
         }
     }, 5*60*1000)
 }
-
-// 5*60*1000

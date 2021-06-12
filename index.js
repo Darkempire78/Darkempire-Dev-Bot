@@ -10,7 +10,8 @@ const client = new Discord.Client({
     restTimeOffset: 0,
     restWsBridgetimeout: 100,
     disableEveryone: true,
-    partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+    intents: new Discord.Intents(Discord.Intents.ALL)
 });
 
 //Client variables to use everywhere
